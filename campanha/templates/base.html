@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>{% block title %}Campanha{% endblock %}</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% block head %}{% endblock head %}
+</head>
+<body>
+    <div class="flex items-center justify-center min-h-screen bg-gray-100">
+        <!-- Menu Lateral -->
+        <aside class="w-64 bg-gray-800 text-white h-screen">
+            <ul>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'home' %}">Início</a>
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'eventos' %}">Eventos</a> <!-- Ajustado para o nome correto da URL -->
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'listar_recursos' %}">Recursos Logísticos</a> <!-- Ajustado para refletir a URL de recursos -->
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'planejamento_rotas' %}">Planejamento de Rotas</a> <!-- URL para planejamento -->
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'listar_materiais' %}">Materiais de Marketing</a> <!-- Ajustado para lista de materiais -->
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'listar_demandas' %}">Demandas</a> <!-- Ajustado para a listagem de demandas -->
+                </li>
+                <li class="p-4 hover:bg-gray-700">
+                    <a href="{% url 'dashboard' %}">Dashboard</a> <!-- Ajustado para a listagem de dashboard -->
+                </li>
+            </ul>
+        </aside>
+    
+        <!-- Conteúdo principal -->
+        <main class="flex-1 p-6 bg-gray-100">
+            {% if messages %}
+                <ul class="bg-blue-100 text-blue-800 px-4 py-2 rounded mb-4">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% block content %}
+            <!-- O conteúdo será carregado aqui dependendo da página -->
+            {% endblock %}
+           
+        </main>
+        
+    </div>
+   
+</body>
+</html>

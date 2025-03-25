@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="bg-white p-6 rounded shadow-md">
+        <h1 class="text-xl font-bold mb-4">Lista de Eventos</h1>
+        <table class="table-auto w-full border-collapse border border-gray-400">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border border-gray-400 px-4 py-2">Nome</th>
+                    <th class="border border-gray-400 px-4 py-2">Local</th>
+                    <th class="border border-gray-400 px-4 py-2">Data e Horário</th>
+                    <th class="border border-gray-400 px-4 py-2">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for evento in eventos %}
+                <tr class="hover:bg-gray-100">
+                    <td class="border border-gray-400 px-4 py-2">{{ evento.nome }}</td>
+                    <td class="border border-gray-400 px-4 py-2">{{ evento.local }}</td>
+                    <td class="border border-gray-400 px-4 py-2">{{ evento.data_horario }}</td>
+                    <td class="border border-gray-400 px-4 py-2">
+                        <a href="{% url 'editar_evento' evento.id %}" class="text-blue-500 hover:underline">Editar</a> |
+                        <a href="{% url 'deletar_evento' evento.id %}" onclick="return confirm('Tem certeza de que deseja excluir este evento?')">
+                            Excluir
+                        </a>
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>        
+    </div>
+    <div class="mt-4">
+        <span class="text-gray-700">Página:</span>
+        {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+                <strong>{{ num }}</strong>
+            {% else %}
+                <a href="?page={{ num }}" class="text-blue-500 hover:underline">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+

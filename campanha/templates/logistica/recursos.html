@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="bg-white p-6 rounded shadow-md">
+    <h1 class="text-xl font-bold mb-4">Recursos Logísticos</h1>
+    <table class="table-auto w-full border-collapse border border-gray-400">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-400 px-4 py-2">Tipo de Recurso</th>
+                <th class="border border-gray-400 px-4 py-2">Descrição</th>
+                <th class="border border-gray-400 px-4 py-2">Quantidade</th>
+                <th class="border border-gray-400 px-4 py-2">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recurso in recursos %}
+            <tr class="hover:bg-gray-100">
+                <td class="border border-gray-400 px-4 py-2">{{ recurso.tipo }}</td>
+                <td class="border border-gray-400 px-4 py-2">{{ recurso.descricao }}</td>
+                <td class="border border-gray-400 px-4 py-2">{{ recurso.quantidade }}</td>
+                <td class="border border-gray-400 px-4 py-2">
+                    <a href="{% url 'editar_recurso' recurso.id %}" class="text-blue-500 hover:underline">Editar</a> |
+                    <a href="{% url 'deletar_recurso' recurso.id %}" class="text-red-500 hover:underline">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

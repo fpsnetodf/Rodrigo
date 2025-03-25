@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-gray-100 p-6 rounded shadow-md">
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">Bem-vindo ao Sistema de Gestão de Campanha!</h1>
+    <p class="text-lg text-gray-700 text-center mb-4">
+        Aqui você pode gerenciar eventos, recursos, materiais de marketing e demandas com facilidade.
+    </p>
+    
+    <!-- Funcionalidades -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+        <a href="{% url 'eventos' %}" class="bg-blue-500 text-white p-4 rounded shadow hover:bg-blue-600">
+            <h2 class="text-xl font-bold">Gerenciar Eventos</h2>
+            <p class="text-sm">Adicione, edite ou exclua eventos no calendário da campanha.</p>
+        </a>
+        <a href="{% url 'listar_recursos' %}" class="bg-green-500 text-white p-4 rounded shadow hover:bg-green-600">
+            <h2 class="text-xl font-bold">Recursos Logísticos</h2>
+            <p class="text-sm">Gerencie transporte, alimentação e materiais gráficos.</p>
+        </a>
+        <a href="{% url 'listar_materiais' %}" class="bg-purple-500 text-white p-4 rounded shadow hover:bg-purple-600">
+            <h2 class="text-xl font-bold">Aprovar Materiais</h2>
+            <p class="text-sm">Acompanhe e aprove materiais de marketing da campanha.</p>
+        </a>
+        <a href="{% url 'listar_demandas' %}" class="bg-yellow-500 text-white p-4 rounded shadow hover:bg-yellow-600">
+            <h2 class="text-xl font-bold">Gerenciar Demandas</h2>
+            <p class="text-sm">Atenda às solicitações enviadas pelos eleitores.</p>
+        </a>
+        <a href="{% url 'dashboard' %}" class="bg-indigo-500 text-white p-4 rounded shadow hover:bg-indigo-600">
+            <h2 class="text-xl font-bold">Dashboard</h2>
+            <p class="text-sm">Acompanhe métricas e informações gerais.</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+

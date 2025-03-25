@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="bg-gray-100 p-6 rounded shadow-md">
+    <!-- Título principal -->
+    <h1 class="text-3xl font-bold text-center mb-6 text-blue-600">Dashboard</h1>
+    
+    <!-- Descrição -->
+    <p class="text-lg text-gray-700 text-center mb-4">
+        Gerencie facilmente todos os aspectos da campanha a partir de um único local.
+    </p>
+
+    <!-- Links para funcionalidades -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        <!-- Gerenciar Eventos -->
+        <a href="{% url 'eventos' %}" class="bg-blue-500 text-white p-4 rounded shadow hover:bg-blue-600">
+            <h2 class="text-xl font-bold">Gerenciar Eventos</h2>
+            <p class="text-sm">Adicione, edite ou exclua eventos no calendário da campanha.</p>
+        </a>
+
+        <!-- Recursos Logísticos -->
+        <a href="{% url 'listar_recursos' %}" class="bg-green-500 text-white p-4 rounded shadow hover:bg-green-600">
+            <h2 class="text-xl font-bold">Recursos Logísticos</h2>
+            <p class="text-sm">Gerencie transporte, alimentação e materiais gráficos.</p>
+        </a>
+
+        <!-- Planejamento de Rotas -->
+        <a href="{% url 'planejamento_rotas' %}" class="bg-purple-500 text-white p-4 rounded shadow hover:bg-purple-600">
+            <h2 class="text-xl font-bold">Planejamento de Rotas</h2>
+            <p class="text-sm">Planeje rotas e organize deslocamentos estratégicos.</p>
+        </a>
+
+        <!-- Aprovar Materiais de Marketing -->
+        <a href="{% url 'listar_materiais' %}" class="bg-yellow-500 text-white p-4 rounded shadow hover:bg-yellow-600">
+            <h2 class="text-xl font-bold">Materiais de Marketing</h2>
+            <p class="text-sm">Acompanhe e aprove materiais para a campanha.</p>
+        </a>
+
+        <!-- Demandas -->
+        <a href="{% url 'listar_demandas' %}" class="bg-teal-500 text-white p-4 rounded shadow hover:bg-teal-600">
+            <h2 class="text-xl font-bold">Demandas</h2>
+            <p class="text-sm">Acompanhe as solicitações enviadas pelos eleitores.</p>
+        </a>
+
+        <!-- Coordenadores -->
+        <a href="{% url 'listar_coordenadores' %}" class="bg-indigo-500 text-white p-4 rounded shadow hover:bg-indigo-600">
+            <h2 class="text-xl font-bold">Coordenadores</h2>
+            <p class="text-sm">Gerencie as informações da equipe de coordenação.</p>
+        </a>
+
+        <!-- Lideranças -->
+        <a href="{% url 'listar_liderancas' %}" class="bg-pink-500 text-white p-4 rounded shadow hover:bg-pink-600">
+            <h2 class="text-xl font-bold">Lideranças</h2>
+            <p class="text-sm">Gerencie lideranças e suas metas de campanha.</p>
+        </a>
+
+        <!-- Eleitores -->
+        <a href="{% url 'listar_eleitores' %}" class="bg-red-500 text-white p-4 rounded shadow hover:bg-red-600">
+            <h2 class="text-xl font-bold">Eleitores</h2>
+            <p class="text-sm">Acompanhe e gerencie o cadastro de eleitores.</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
