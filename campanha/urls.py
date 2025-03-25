@@ -30,6 +30,7 @@ urlpatterns = [
     
     # Materiais
     path('materiais/', views.listar_materiais, name='listar_materiais'),
+    
     path('materiais/criar/', views.criar_material, name='criar_material'),
     path('materiais/editar/<int:material_id>/', views.editar_material, name='editar_material'),
     path('materiais/aprovar/<int:material_id>/', views.aprovar_material, name='aprovar_material'),

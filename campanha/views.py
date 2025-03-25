@@ -1,9 +1,10 @@
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Evento, Logistica, MaterialMarketing, Demanda, Usuario
+from .models import Evento, Logistica, MaterialMarketing, Demanda, Usuario, Material
 from .forms import EventoForm, RecursoForm, DemandaForm, MaterialMarketingForm
 from django.core.paginator import Paginator
 
@@ -175,3 +176,10 @@ def listar_liderancas(request):
 def listar_eleitores(request):
     eleitores = Usuario.objects.filter(tipo='eleitor')  # Filtra apenas os eleitores
     return render(request, 'eleitores/listar_eleitores.html', {'eleitores': eleitores})
+
+
+
+
+def listar_materiais(request):
+    materiais = Material.objects.all()
+    return render(request, 'materiais/listar_materiais.html', {'materiais': materiais})

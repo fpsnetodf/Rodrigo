@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
+{% block conteudo %}
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
         <form method="POST" class="bg-white p-6 rounded shadow-md">
             {% csrf_token %}
@@ -18,4 +18,4 @@
             </button>
         </form>
     </div>
-{% endblock content %}
+{% endblock conteudo %}
