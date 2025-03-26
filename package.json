@@ -6,6 +6,7 @@
   "scripts": {
     "watch": "npx @tailwindcss/cli -i static/css/input.css -o static/css/style.css --watch",
     "pdb": "python3 manage.py makemigrations && python3 manage.py migrate",
-    "start": "python3 manage.py runserver"
+    "start": "python3 manage.py runserver",
+    "app": "python3 manage.py startapp"
   }
 }
